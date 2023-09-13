@@ -15,7 +15,34 @@ namespace Assignment2.Controllers
   
             var sqlh = new SQLHelper();
 
-            ViewBag.DataTable = sqlh.ExecuteQuery("SELECT TOP (10) * FROM [dbo].[orders] WHERE order_status = 'FINISHED'");
+            var sqlQuery =
+                "SELECT\n" +
+                "    o.order_id,\n" +
+                "    o.order_status,\n" +
+                "    o.order_amount,\n" +
+                "    c.channel_id,\n" +
+                "    c.channel_name,\n" +
+                "    c.channel_type,\n" +
+                "    s.store_id,\n" +
+                "    s.hub_id,\n" +
+                "    s.store_name,\n" +
+                "    s.store_segment,\n" +
+                "    s.store_plan_price,\n" +
+                "    s.store_latitude,\n" +
+                "    s.store_longitude\n" +
+                "FROM\n" +
+                "    dbo.orders AS o\n" +
+                "JOIN\n" +
+                "    dbo.channels AS c\n" +
+                "ON\n" +
+                "    o.channel_id = c.channel_id\n" +
+                "JOIN\n" +
+                "    dbo.stores AS s\n" +
+                "ON\n" +
+                "    o.store_id = s.store_id" +
+                "Where" +
+                "    o.order_status = "+searchTerm+"";
+            ViewBag.DataTable = sqlh.ExecuteQuery(sqlQuery);
 
 
             return View();
@@ -55,12 +82,10 @@ namespace Assignment2.Controllers
                 "ON\n" +
                 "    o.store_id = s.store_id;";
             ViewBag.DataTable = sqlh.ExecuteQuery(sqlQuery);
-            //ViewBag.DataTable = sqlh.ExecuteQuery("SELECT TOP (10) * FROM [dbo].[orders] WHERE order_status = 'FINISHED'");
-
-
             return View();
         }
 
+        //The Details function of get the payment data from database
         public ActionResult Details()
         {
             ViewBag.Title = "Deliver Details";
@@ -88,6 +113,7 @@ namespace Assignment2.Controllers
             return View();
         }
 
+        //The OrderHubs function of get the payment data from database
         public ActionResult OrderHubs()
         {
             ViewBag.Title = "Hub Order Report";
@@ -108,6 +134,7 @@ namespace Assignment2.Controllers
             return View();
         }
 
+        //The Payment function of get the payment data from database
         public ActionResult Payment()
         {
             ViewBag.Title = "Payment Analysis";

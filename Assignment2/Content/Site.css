@@ -1,11 +1,30 @@
-﻿body {
-    background: linear-gradient(to bottom, #3498db, #2980b9);
-    font-family: Arial, sans-serif;  
-    color: #fff;  
+﻿.styled-button {
+    background-color: #0074d9; /* 设置按钮背景颜色 */
+    color: white; /* 设置文字颜色 */
+    border: none; /* 去除按钮边框 */
+    padding: 10px 20px; /* 设置内边距，增加按钮大小 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标悬停样式 */
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
 }
 
+.styled-button:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+}
+body {
+    margin-top: 1cm;
+    background: linear-gradient(to bottom, #0074d9, #0056b3); /* 渐变的颜色和方向 */
+}
 
-.table {
+h2 {
+    font-size: 24px; /* 调整文字大小 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字阴影效果 */
+    background: linear-gradient(to right, #0074d9, #0056b3); /* 文字渐变背景 */
+    -webkit-background-clip: text; /* 设置背景裁剪为文字 */
+    color: transparent; /* 隐藏文字颜色 */
+    display: inline; /* 保持行内块级元素的布局 */
+}
+.filterd_table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -58,7 +77,8 @@
     border-radius: 4px;
     font-size: 14px;
 }
-.gradient-background {
+#gradient-background
+{
     background: linear-gradient(to bottom, #3498db, #2980b9);
 }
 

@@ -1,23 +1,52 @@
 ﻿
 <title>Order Details</title>
+
 <style>
     table {
         width: 100%;
         border-collapse: collapse;
     }
 
-    th, td {
+    th {
         text-align: center;
         padding: 12px;
-        border: 2px solid #ddd;
+        border: 3px solid #ddd;
+        background-color: #add8e6;
+        border-color: darkorange;
+        color: blue;
+    }
+
+    td {
+        text-align: center;
+        padding: 12px;
     }
 
     tr:nth-child(even) {
         background-color: #f2f2f2;
     }
+
+    cool-title {
+        font-size: 50px;
+        text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(to right,#0074d9, #0036b3);
+        -webkit-background-clip: text;
+        color: transparent;
+        display: inline;
+    }
+
+    welcome {
+        font-size: 30px;
+        text-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(to right, #0074d9, #0036b3);
+        -webkit-background-clip: text;
+        color: transparent;
+        display: inline;
+    }
 </style>
+
+<cool-title>Order Details</cool-title>
+<p> </p>
 <div class="col-3 justify-content-center">
-    <h2>Order Details</h2>
 
     <table border="5" id="filterd_detailed_table">
         <tr>
