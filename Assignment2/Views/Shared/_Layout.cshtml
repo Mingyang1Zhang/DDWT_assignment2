@@ -6,8 +6,10 @@
     <title>@ViewBag.Title - Marvel Movie Database</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
-<body>
+<body class ="body">
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light px-5 mb-5">
         @Html.ActionLink("Food Deliveries", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,6 +19,7 @@
             <div class="navbar-nav">
                 @Html.ActionLink("Order Hubs", "OrderHubs", "Home", new { area = "" }, new { @class = "nav-link" })
                 @Html.ActionLink("Payment Analyse", "Payment", "Home", new { area = "" }, new { @class = "nav-link" })
+                @Html.ActionLink("Order Details", "Details", "Home", new { area = "" }, new { @class = "nav-link" })
 
             </div>
         </div>
@@ -34,5 +37,5 @@
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     @RenderSection("scripts", required: false)
-</body>
+</bodybackground:>
 </html>

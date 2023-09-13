@@ -1,37 +1,79 @@
-﻿@using WebMatrix.Data
+﻿
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Center</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-@{
-    var db = Database.Open("AmazonOrders");
+        th, td {
+            text-align: center;
+            padding: 12px;
+            border: 2px solid #ddd;
+        }
 
-    var sql = "SELECT * FROM actor";
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+    @*<link href="~/Content/site.css" rel="stylesheet" />*@
 
-    var output = db.Query(sql);
 
-}
 
-@foreach(var i in output){
-    @i.actorname
-}
+    <link href="../../Content/Site.css" rel="stylesheet" />
 
-<h2>All Movies</h2>
-<form method="get" action="/Index?cardid=1">
-    <input type="string" value="Search" />
-    <button class="btn">Search</button>
-    <div class="row">
+</head>
+<body class="gradient-background">
+    <h2>Order Center</h2>
+    <form method="get" action="/HomeController/Find">
+        <input type="text" name="searchTerm" placeholder="Enter order status" />
+        <button class="btn" type="submit">Search</button>
+        @*<input type="string" value="Search" />
+            <button class="btn">Search</button>*@
+        @*<div class="row">*@
         <div class="row">
             <div class="col-3 justify-content-center">
-                @foreach (var row in output)
-                {
-
-                <div class="card">
-                <img src="@row.imageURL" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">@row.cardName</h5>
-                <p class="card-text">@row.oracleText</p>
-                <a href="/Home/Index?=row.cardID" class="btn btn-primary">Details</a>
-                </div>
-                </div>
-                }
+                <table border="5" id="filterd_table">
+                    <tr>
+                        <th>order_id</th>
+                        <th>order_status</th>
+                        <th>order_amount</th>
+                        <th>channel_id</th>
+                        <th>channel_name</th>
+                        <th>channel_type</th>
+                        <th>store_id</th>
+                        <th>hub_id</th>
+                        <th>store_name</th>
+                        <th>store_segment</th>
+                        <th>store_plan_price</th>
+                        <th>store_latitude</th>
+                        <th>store_longitude</th>
+                    </tr>
+                    @foreach (var row in ViewBag.DataTable.Rows)
+                    {
+                        <tr>
+                            <td>@row["order_id"]</td>
+                            <td>@row["order_status"]</td>
+                            <td>@row["order_amount"]</td>
+                            <td>@row["channel_id"]</td>
+                            <td>@row["channel_name"]</td>
+                            <td>@row["channel_type"]</td>
+                            <td>@row["store_id"]</td>
+                            <td>@row["hub_id"]</td>
+                            <td>@row["store_name"]</td>
+                            <td>@row["store_segment"]</td>
+                            <td>@row["store_plan_price"]</td>
+                            <td>@row["store_latitude"]</td>
+                            <td>@row["store_longitude"]</td>
+                        </tr>
+                    }
+                </table>
             </div>
         </div>
-</form>
+    </form>
+</body>
+</html>

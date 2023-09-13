@@ -1,1 +1,89 @@
 ﻿
+<title>Order Details</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 12px;
+        border: 2px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<div class="col-3 justify-content-center">
+    <h2>Order Details</h2>
+
+    <table border="5" id="filterd_detailed_table">
+        <tr>
+            <th>order_id</th>
+            <th>store_id</th>
+            <th>channel_id</th>
+            <th>driver_id</th>
+            <th>order_status</th>
+            <th>order_amount</th>
+            <th>order_delivery_fee</th>
+            <th>order_delivery_cost</th>
+            <th>order_moment_created</th>
+            <th>order_moment_accepted</th>
+            <th>order_moment_ready</th>
+            <th>order_moment_collected</th>
+            <th>order_moment_in_expedition</th>
+            <th>order_moment_delivering</th>
+            <th>order_moment_delivered</th>
+            <th>order_moment_finished</th>
+            <th>order_metric_walking_time</th>
+            <th>order_metric_expediton_speed_time</th>
+            <th>order_metric_transit_time</th>
+            <th>order_metric_cycle_time</th>
+            <th>driver_modal</th>
+            <th>driver_type</th>
+            <th>payment_id</th>
+            <th>payment_amount</th>
+            <th>payment_fee</th>
+            <th>payment_method</th>
+            <th>payment_status</th>
+            <th>channel_name</th>
+            <th>channel_type</th>
+        </tr>
+        @foreach (var row in ViewBag.DataTable.Rows)
+        {
+            <tr>
+                <td>@row["order_id"]</td>
+                <td>@row["store_id"]</td>
+                <td>@row["channel_id"]</td>
+                <td>@row["driver_id"]</td>
+                <td>@row["order_status"]</td>
+                <td>@row["order_amount"]</td>
+                <td>@row["order_delivery_fee"]</td>
+                <td>@row["order_delivery_cost"]</td>
+                <td>@row["order_moment_created"]</td>
+                <td>@row["order_moment_accepted"]</td>
+                <td>@row["order_moment_ready"]</td>
+                <td>@row["order_moment_collected"]</td>
+                <td>@row["order_moment_in_expedition"]</td>
+                <td>@row["order_moment_delivering"]</td>
+                <td>@row["order_moment_delivered"]</td>
+                <td>@row["order_moment_finished"]</td>
+                <td>@row["order_metric_walking_time"]</td>
+                <td>@row["order_metric_expediton_speed_time"]</td>
+                <td>@row["order_metric_transit_time"]</td>
+                <td>@row["order_metric_cycle_time"]</td>
+                <td>@row["driver_modal"]</td>
+                <td>@row["driver_type"]</td>
+                <td>@row["payment_id"]</td>
+                <td>@row["payment_amount"]</td>
+                <td>@row["payment_fee"]</td>
+                <td>@row["payment_method"]</td>
+                <td>@row["payment_status"]</td>
+                <td>@row["channel_name"]</td>
+                <td>@row["channel_type"]</td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,2 +1,81 @@
 ﻿
-<h2>Hob Orders Report</h2>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 12px;
+        border: 2px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+<h2>Hub Orders Report</h2>
+
+<table border="5">
+    <tr>
+        <th>order_id</th>
+        <th>hub_id</th>
+        <th>hub_name</th>
+        <th>hub_city</th>
+        <th>hub_state</th>
+        <th>hub_latitude</th>
+        <th>hub_longitude</th>
+        <th>store_id</th>
+        <th>channel_id</th>
+        <th>order_status</th>
+        <th>order_amount</th>
+        <th>order_delivery_fee</th>
+        <th>order_delivery_cost</th>
+        <th>order_moment_created</th>
+        <th>order_moment_accepted</th>
+        <th>order_moment_ready</th>
+        <th>order_moment_collected</th>
+        <th>order_moment_in_expedition</th>
+        <th>order_moment_delivering</th>
+        <th>order_moment_delivered</th>
+        <th>order_moment_finished</th>
+        <th>order_metric_walking_time</th>
+        <th>order_metric_expediton_speed_time</th>
+        <th>order_metric_transit_time</th>
+        <th>order_metric_cycle_time</th>
+
+    </tr>
+    @foreach (var row in ViewBag.DataTable.Rows)
+    {
+        <tr>
+            <td>@row["order_id"]</td>
+            <td>@row["hub_id"]</td>
+            <td>@row["hub_name"]</td>
+            <td>@row["hub_city"]</td>
+            <td>@row["hub_state"]</td>
+            <td>@row["hub_state"]</td>
+            <td>@row["hub_latitude"]</td>
+            <td>@row["hub_longitude"]</td>
+            <td>@row["store_id"]</td>
+            <td>@row["channel_id"]</td>
+            <td>@row["order_status"]</td>
+            <td>@row["order_amount"]</td>
+            <td>@row["order_delivery_fee"]</td>
+            <td>@row["order_delivery_cost"]</td>
+            <td>@row["order_moment_created"]</td>
+            <td>@row["order_moment_accepted"]</td>
+            <td>@row["order_moment_ready"]</td>
+            <td>@row["order_moment_collected"]</td>
+            <td>@row["order_moment_in_expedition"]</td>
+            <td>@row["order_moment_delivering"]</td>
+            <td>@row["order_moment_delivered"]</td>
+            <td>@row["order_moment_finished"]</td>
+            <td>@row["order_metric_walking_time"]</td>
+            <td>@row["order_metric_expediton_speed_time"]</td>
+            <td>@row["order_metric_transit_time"]</td>
+            <td>@row["order_metric_cycle_time"]</td>
+        </tr>
+    }
+</table>
